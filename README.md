@@ -797,37 +797,6 @@ By default to ensure your app is in a consistent state at the start of each test
 
 You might additionally want to do some clean-up of your app after each test by implementing an `onAfterScenario` hook.
 
-#### Flutter World
-
-### Pre-defined Steps
-
-For convenience the library defines a number of pre-defined steps so you can get going much quicker without having to implement lots of step classes.  The pre-defined steps are:
-
-| Step Text                                                               | Description                                                                                                     | Examples                                                      |
-| ----------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
-| I tap the {string} [button\|element\|label\|icon\|field\|text\|widget] | Taps the element with the provided key ( given by the first input parameter)                                    | `When I tap the "login" button` , `Then I tap the "save" icon` |
-| I fill the {string} field with {string}                 | Fills the element with the provided key with the given value (given by the second input parameter)          | `When I fill the "email" field with "someone@gmail.com"` |
-| I expect the {string} to be {string}                                    | Asserts that the element with the given key has the given string value                                        | `Then I expect the "cost" to be "£10.95"` |
-| I (open\|close) the drawer                              | Opens or closes the application default drawer    | `When I open the drawer` , `And I close the drawer` |
-| I expect the [button\|element\|label\|icon\|field\|text\|widget] {string} to be present within {int} second(s) | Expects a widget with the given key to be present within n seconds                                     | `Then I expect the widget 'notification' to be present within 10 seconds` , `Then I expect the icon 'notification' to be present within 1 second` |
-| I pause for {int} seconds                               | Pauses the test execution for the given seconds. Only use in debug scenarios or to inspect the state of the app | `Then I pause for 20 seconds` |
-| I restart the app                                       | Restarts the app under test | `Then I restart the app` |
-| I tap the back button                                   | Taps the page default back button widget | `Then I tap the back button` |
-| I expect a {string} that contains the text {string} to also contain the text {string} | Discovers a sibling based on its parent widget type and asserts that the both text string exist within the parent. | `Then I expect a "Row" that contains the text "X" to also contain the text "Y"` |
-| I swipe [down\|left\|right\|up] by {int} pixels on the {string} | Swipes in a cardinal direction on a widget discovered by its key. | `Then I swipe up by 800 pixels on the "login_screen"` , `Then I swipe left by 200 pixels on the "dismissible_list_item"` |
-| I swipe [down\|left\|right\|up] by {int} pixels on the on the [button\|element\|label\|field\|text\|widget\|dialog\|popup] that contains the text {string} | Swipes in a cardinal direction on a widget discovered by its test. | `Then I swipe left by 400 pixels on the widget that contains the text "Dismiss Me"` |
-| I tap the [button\|element\|label\|field\|text\|widget] that contains the text {string} within the {string} |  Taps a widget that contains the text within another widget. If the text is not visible, the ancestor will be scrolled. | `Then I tap the label that contains the text "Logout" within the "user_settings_list"` |
-| I tap the [button\|element\|label\|icon\|field\|text\|widget] of type {string} | Taps a widget of type. | `Then I tap the element of type "MaterialButton"` , `Then I tap the label of type "ListTile"` , `Then I tap the field of type "TextField"` |
-| I tap the [button\|element\|label\|icon\|field\|text\|widget] of type {string} within the {string} | Taps a widget of type within another widget. | `Then I tap the element of type "MaterialButton" within the "user_settings_list"` |
-| I tap the [button\|element\|label\|icon\|field\|text\|widget] that contains the text {string} | Taps a widget that contains text. | `Then I tap the label that contains the text "Logout"` , `Then I tap the button that contains the text "Sign up"` , `Then I tap the widget that contains the text "My User Profile"` |
-| I expect the text {string} to be [present\|absent] | Asserts the existence of text on the screen. | `Then I expect the text "Logout" to be present` , `But I expect the text "Signup" to be absent` |
-| I expect the text {string} to be [present\|absent] within the {string} | Asserts the existence of text within a parent widget. | `Then I expect the text "Logout" to be present within the "user_settings_list"` , `But I expect the text "Signup" to be absent within the "login_screen"` |
-| I wait until the {string} is [present\absent] | Delays until a widget is present or absent. | `Then I wait until the "login_loading_indicator" is absent` , `And I wait until the "login_screen" is present` |
-| I wait until the [button\|element\|label\|icon\|field\|text\|widget] of type {string} is [present\absent] | Waits until a widget type is present or absent. | `Then I wait until the element of type "ProgressIndicator" is absent` , `And I wait until the button of type "MaterialButton" is present` |
-| I long press the {string} [button\|element\|label\|icon\|field\|text\|widget] | Scrolls into view and long presses the widget for 500 milliseconds. | `When I long press "controlKey" button` |
-| I long press the {string} [button\|element\|label\|icon\|field\|text\|widget] without scrolling it into view | Long presses the widget for 500 milliseconds. | `When I long press "controlKey" button without scrolling it into view` |
-| I long press the {string} [button\|element\|label\|icon\|field\|text\|widget] for {int} milliseconds | Scrolls into view and long presses the widget for the give number of milliseconds. | `When I long press "controlKey" button without scrolling it into view for 1500 milliseconds` |
-
 #### Flutter Driver Utilities
 
 For convenience the library provides a static `FlutterDriverUtils` class that abstracts away some common Flutter driver functionality like tapping a button, getting and entering text, checking if an element is present or absent, waiting for a condition to become true.  See [lib/src/flutter/utils/driver_utils.dart](lib/src/flutter/utils/driver_utils.dart).
@@ -913,29 +882,4 @@ Flutter run key commands.
 [ ] An Observatory debugger and profiler on iPhone 8 Plus is available at: http://127.0.0.1:61660/xgrsw_qQ9sI=/
 [ ] Running with unsound null safety
 [ ] For more information see https://dart.dev/null-safety/unsound-null-safety
-```
-
-To run the gherkin tests, first update the `test_driver/app_test.dart` to something similar to this:
-
-```
-import 'dart:async';
-import 'dart:io';
-import 'package:flutter_gherkin/flutter_gherkin.dart';
-import 'package:gherkin/gherkin.dart';
-Future<void> main(List<String> args) async {
-if (args.isEmpty) {
-  print('please pass in the uri');
-  exit(1);
-}
-final Iterable<StepDefinitionGeneric<World>> steps = [];
-final config = FlutterTestConfiguration.DEFAULT(
-  steps,
-  featurePath: 'features//**.feature',
-  targetAppPath: 'test_driver/app.dart',
-)
-  ..restartAppBetweenScenarios = false
-  ..targetAppWorkingDirectory = '../'
-  ..runningAppProtocolEndpointUri = args[0]; 
-  return GherkinRunner().execute(config);
-}
 ```
