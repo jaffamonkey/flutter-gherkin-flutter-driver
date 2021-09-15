@@ -129,47 +129,7 @@ Future<void> main() {
 }
 ```
 
-#### defaultLanguage
-
-Defaults to `en`
-This specifies the default language the feature files are written in.  See https://cucumber.io/docs/gherkin/reference/#overview for supported languages.
-
-Note that this can be overridden in the feature itself by the use of a language block.
-
-``` 
-# language: de
-Funktionalität: Calculator
-  Tests the addition of two numbers
-
-  Szenariogrundriss: Add two numbers
-    Gegeben sei the numbers <number_one> and <number_two>
-    Wenn they are added
-    Dann the expected result is <result>
-
-    Beispiele:
-      | number_one | number_two | result |
-      | 12         | 5          | 17     |
-      | 20         | 5          | 25     |
-      | 20937      | 1          | 20938  |
-      | 20.937     | -1.937     | 19     |
-```
-
-``` 
-# language: fr
-Fonctionnalité: Counter
-  The counter should be incremented when the button is pressed.
-
-  @smoke
-  Scénario: Counter increases when the button is pressed
-    Etant donné que I pick the colour red
-    Et I expect the "counter" to be "0"
-    Quand I tap the "increment" button 10 times
-    Alors I expect the "counter" to be "10"
-```
-
 #### customStepParameterDefinitions
-
-Defaults to `CustomParameter<dynamic>` .
 
 Place instances of any custom step parameters that you have defined.  These will be matched up to steps when scenarios are run and their result passed to the executable step.  See [Custom Parameters](#custom-parameters).
 
@@ -259,8 +219,6 @@ Reporters are classes that are able to report on the status of the test run.  Th
 * `JsonReporter` - creates a JSON file with the results of the test run which can then be used by 'https://www.npmjs.com/package/cucumber-html-reporter.' to create a HTML report.  You can pass in the file path of the json file to be created.
 
 You should provide at least one reporter in the configuration otherwise it'll be hard to know what is going on.
-
-*Note*: Feel free to PR new reporters!
 
 ``` dart
 import 'dart:async';
