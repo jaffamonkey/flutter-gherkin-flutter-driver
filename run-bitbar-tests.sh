@@ -15,7 +15,7 @@ echo "Rename template test run file"
 cp $script_Path/android/run-tests-android.sh run-tests.sh
 cp $script_Path/android/android-configuration-tmp configuration-android-"$testrunname"
 echo "Compress app source folder for upload ..."       
-zip -r android-test-files-"$testrunname".zip run-tests.sh analysis_options.yaml melos.yaml packages
+zip -r ../android-test-files-"$testrunname".zip run-tests.sh ../flutter-gherkin-flutter-driver
 echo "Upload files to BitBar cloud"
 response4=$(curl -X POST -u "$BB_APIKEY": $bitbar_Path/files -F "file=@android-test-files-$testrunname.zip")
 response4=("${response4[*]}") # convert to array
