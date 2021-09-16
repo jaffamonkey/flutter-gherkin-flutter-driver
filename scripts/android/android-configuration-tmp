@@ -1,0 +1,16 @@
+{
+  "osType": "ANDROID",
+  "frameworkId": 541,
+  "files": [
+    {
+      "id": TEST_FILE_ID
+    },
+    {
+      "id": 123456789
+    }
+  ],
+  "testRunName": "TEST_RUN_NAME",
+  "projectId": 123456789,
+  "deviceGroupId": 12345,
+  "videoRecordingEnabled": false
+}
