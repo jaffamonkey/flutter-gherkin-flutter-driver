@@ -6,7 +6,7 @@ flutter drive -v --target=./test_driver/app.dart
 ```
 ## Run tests using existing application (iOS)
 ```
-flutter-2.2.0 drive -v --use-application-binary build/ios/iphoneos/Runner.app -target=./test_driver/app.dart
+flutter drive -v --use-application-binary build/ios/iphoneos/Runner.app -target=./test_driver/app.dart
 ````
 
 This repo is based on example provided in [Flutter Gherkin](https://github.com/search?q=user%3Ajaffamonkey+flutter+gherkin)

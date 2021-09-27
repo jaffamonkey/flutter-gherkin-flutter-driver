@@ -1,0 +1,17 @@
+{
+  "osType": "ANDROID",
+  "frameworkId": 541,
+  "files": [
+    {
+      "id": TEST_FILE_ID
+    },
+    {
+      "id": 142941355
+    }
+  ],
+  "testRunName": "TEST_RUN_NAME",
+  "projectId": PROJECT_ID,
+  "deviceGroupId": DEVICE_GROUP_ID,
+  "videoRecordingEnabled": false,
+  "timeout": 3600
+}

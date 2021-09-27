@@ -6,11 +6,14 @@
       "id": TEST_FILE_ID
     },
     {
-      "id": 123456789
+      "id": 142941355
     }
   ],
   "testRunName": "TEST_RUN_NAME",
-  "projectId": 123456789,
-  "deviceGroupId": 12345,
-  "videoRecordingEnabled": false
+  "projectId": PROJECT_ID,
+  "deviceIds": [
+    DEVICE_ID
+  ],
+  "videoRecordingEnabled": false,
+  "timeout": 3600
 }
