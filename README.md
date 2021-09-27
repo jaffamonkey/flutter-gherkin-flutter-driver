@@ -1,11 +1,13 @@
-To build and run tests:
+This repo is based on example provided in [Flutter Gherkin](https://github.com/search?q=user%3Ajaffamonkey+flutter+gherkin)
+
+## Run tests (Android or IOS)
 ```
 flutter drive -v --target=./test_driver/app.dart
 ```
-To run tests using existing binary:
+## Run tests using existing application (iOS)
 ```
-flutter drive -v --use-application-binary /path/to/Runner.App --target=./test_driver/app.dart
-```
+flutter-2.2.0 drive -v --use-application-binary build/ios/iphoneos/Runner.app -target=./test_driver/app.dart
+````
 
 This repo is based on example provided in [Flutter Gherkin](https://github.com/search?q=user%3Ajaffamonkey+flutter+gherkin)
 
