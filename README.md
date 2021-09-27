@@ -1,6 +1,12 @@
+To build and run tests:
 ```
 flutter drive -v --target=./test_driver/app.dart
 ```
+To run tests using existing binary:
+```
+flutter drive -v --use-application-binary /path/to/Runner.App --target=./test_driver/app.dart
+```
+
 This repo is based on example provided in [Flutter Gherkin](https://github.com/search?q=user%3Ajaffamonkey+flutter+gherkin)
 
 ## Getting Started
