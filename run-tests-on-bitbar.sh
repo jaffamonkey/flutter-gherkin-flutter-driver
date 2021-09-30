@@ -177,10 +177,10 @@ done
 
 # RESET TAG
 if [[ "$custom_Tag" != "" && "$run_Platform" == "mac" ]]; then
-    sed -i .bak "s/tagExpression = '$custom_Tag'/agExpression = '@ci'/" $testdriver_Path/main_test.dart
+    sed -i .bak "s/tagExpression = '$custom_Tag'/tagExpression = '@smoke'/" $testdriver_Path/main_test.dart
     rm $testdriver_Path/main_test.dart.bak
 elif [[ "$custom_Tag" != "" && "$run_Platform" == "win" ]]; then
-    sed -i "s/tagExpression = '$custom_Tag'/'@ci'/" $testdriver_Path/main_test.dart
+    sed -i "s/tagExpression = '$custom_Tag'/'@smoke'/" $testdriver_Path/main_test.dart
 fi
 
 # CHECK FOR FAILURE THEN PASS/FAIL BUILD ACCORDINGLY
